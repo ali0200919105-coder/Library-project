@@ -1,8 +1,8 @@
 import java.util.*;
 public class LendingBook extends Laibrary {
      Map<Book, String> map = new HashMap<>();
-    List<Person> t = new ArrayList<>();
-    Set<String> IDs = new HashSet<>();
+    List<IDpeaple> t = new ArrayList<>();
+
     List<Book> books = ListofBook();
     @Override
     protected void Lending(Book b, String chos) {
@@ -12,7 +12,7 @@ public class LendingBook extends Laibrary {
             for (Book b : map.keySet()) {
                 String userName = map.get(b);
                 System.out.println(b + " \nID person = " + userName);
-                for (Person p : t) {
+                for (IDpeaple p : t) {
                     System.out.println("Full ID = " + p.toString());
                 }
             }}}
