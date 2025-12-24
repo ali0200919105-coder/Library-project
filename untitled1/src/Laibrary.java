@@ -1,23 +1,27 @@
 import java.util.*;
-import java.util.Scanner;
+
 public abstract class Laibrary {
-    List<Book> y = new ArrayList<>();
-    public Book book;
-    public Book book1;
-    public void CraetBook() {
-        book = new Book("Math", "Ghasem Daraby", 1000);
-        book.setTedadsafhe(500);
-        book.setGhafase(2);
-        book.setTedad(1);
+
+
+    public Book CraetBook(String name , String RITER , int price , int tedad ,
+                          int tedadsafhe , int shomareghafase) {
+        Book book;
+        book = new Book(name , RITER , price);
+        book.setTedadsafhe(tedadsafhe);
+        book.setGhafase(shomareghafase);
+        book.setTedad(tedad);
         book.updateStatus();
-        y.add(book);
-        book1 = new Book("Nahjol", "Hasan Hosiny", 2000);
-        book1.getNewprice(1999);
-        book1.setTedadsafhe(1000);
-        book1.setGhafase(45);
-        book1.setTedad(2);
-        book1.updateStatus();
-        y.add(book1);
+        return book;
     }
-    protected abstract void Form();
+    public List<Book> ListofBook(){
+        List<Book> y = new ArrayList<>();
+       Book book1 = CraetBook("Math", "Ghasem Daraby", 1000 , 1 , 500 , 5);
+       Book book2 = CraetBook("Nahjol", "Hasan Hosiny", 2000 , 3 , 1000 , 45);
+       y.add(book1);
+       y.add(book2);
+       return y;
+    }
+   // protected abstract void Form();
+    protected abstract void Lending(Book b, String name);
+    protected abstract void print();
 }
