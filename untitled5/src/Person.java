@@ -7,7 +7,7 @@ interface addbook{
 }
 public abstract class Person {
 
-    public ArrayList<InfoBook> Books = new ArrayList<>();
+    public ArrayList<InfoBook> Borowbooks = new ArrayList<>();
 
 
     public   int personId;
@@ -25,7 +25,7 @@ public abstract class Person {
     }
 
     public void lendbook(InfoBook book){
-        Books.add(book);
+        Borowbooks.add(book);
     }
 
     public abstract void showInfo();

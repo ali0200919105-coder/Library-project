@@ -2,7 +2,6 @@ public static void main(String[] args) throws InterruptedException {
     LibraryNew lib = new LibraryNew();
     InfoBook kk = new InfoBook();
     Scanner sc = new Scanner(System.in);
-    Person per = new Members();
 
 
     while (true){
@@ -30,7 +29,6 @@ public static void main(String[] args) throws InterruptedException {
                 }
                 System.out.println("inter your number:");
                 int number = sc.nextInt();
-                int personcod = sc.nextInt();
                 if(personAge <100){
                     lib.addPerson( new Members(personName,personAge,number));
                 }
@@ -52,8 +50,8 @@ public static void main(String[] args) throws InterruptedException {
                 System.out.println("inter the tedad Book:");
                 int tedad = sc.nextInt();
 
-                per.lendbook(new InfoBook(bokkName,witer,price,tedad));
-                for (InfoBook o : per.Books){
+                lib.addbook(new InfoBook(bokkName,witer,price,tedad));
+                for (InfoBook o : lib.Books){
                     kk.putt(o.getBookId() , o.getTedad());
                 }
 
@@ -70,14 +68,14 @@ public static void main(String[] args) throws InterruptedException {
                   break;
             case 4:
                  if (lib != null) {
-                     for (InfoBook p : per.Books)
+                     for (InfoBook p : lib.Books)
                          p.showInfo();
                  }
                      Thread.sleep(3000);
 
                  break;
             case 5:
-                for (InfoBook p : per.Books){
+                for (InfoBook p : lib.Books){
                     p.showInfo();
                 }
                 System.out.println("inter your IdPerson:");
@@ -97,7 +95,7 @@ public static void main(String[] args) throws InterruptedException {
                         System.out.println("choos a Book:");
                         int BookId = sc.nextInt();
 
-                        for (InfoBook j : per.Books) {
+                        for (InfoBook j : lib.Books) {
                             if (j.getBookId() == BookId && j.getTedad() > 0) {
                                 ListBook = j;
                                 lib.Lending(ListPerson, ListBook);
