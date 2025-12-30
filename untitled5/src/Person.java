@@ -1,22 +1,31 @@
 import com.sun.tools.javac.util.List;
 
 import java.util.ArrayList;
-
+interface addbook{
+    public void addbok();
+    public void addperson();
+}
 public abstract class Person {
+
     public ArrayList<InfoBook> Books = new ArrayList<>();
+
 
     public   int personId;
     String name;
     int age;
     public  static  int  counter=1;
-    @Override
-    public String toString(){
-        return "Person Id = "+personId+".        Name = "+getName()  + "           Age = " + getAge()+"\n-----------------";
-    }
+
     public Person( String name, int age) {
         this.personId=counter++;
         this.name = name;
         this.age = age;
+    }
+
+    protected Person() {
+    }
+
+    public void lendbook(InfoBook book){
+        Books.add(book);
     }
 
     public abstract void showInfo();
@@ -32,6 +41,9 @@ public abstract class Person {
     public int getAge() {
         return age;
     }
-
+    @Override
+    public String toString(){
+        return "Person Id = "+personId+".        Name = "+getName()  + "           Age = " + getAge()+"\n-----------------";
+    }
 
 }

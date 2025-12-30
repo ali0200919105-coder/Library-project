@@ -2,6 +2,7 @@ public static void main(String[] args) throws InterruptedException {
     LibraryNew lib = new LibraryNew();
     InfoBook kk = new InfoBook();
     Scanner sc = new Scanner(System.in);
+    Person per = new Members();
 
 
     while (true){
@@ -51,8 +52,8 @@ public static void main(String[] args) throws InterruptedException {
                 System.out.println("inter the tedad Book:");
                 int tedad = sc.nextInt();
 
-                lib.addbooks(new InfoBook(bokkName,witer,price,tedad));
-                for (InfoBook o : lib.Books){
+                per.lendbook(new InfoBook(bokkName,witer,price,tedad));
+                for (InfoBook o : per.Books){
                     kk.putt(o.getBookId() , o.getTedad());
                 }
 
@@ -69,14 +70,14 @@ public static void main(String[] args) throws InterruptedException {
                   break;
             case 4:
                  if (lib != null) {
-                     for (InfoBook p : lib.Books)
+                     for (InfoBook p : per.Books)
                          p.showInfo();
                  }
                      Thread.sleep(3000);
 
                  break;
             case 5:
-                for (InfoBook p : lib.Books){
+                for (InfoBook p : per.Books){
                     p.showInfo();
                 }
                 System.out.println("inter your IdPerson:");
@@ -96,11 +97,10 @@ public static void main(String[] args) throws InterruptedException {
                         System.out.println("choos a Book:");
                         int BookId = sc.nextInt();
 
-                        for (InfoBook j : lib.Books) {
+                        for (InfoBook j : per.Books) {
                             if (j.getBookId() == BookId && j.getTedad() > 0) {
                                 ListBook = j;
                                 lib.Lending(ListPerson, ListBook);
-                               // kk.map2.get(j.bookId).remove()
                                 kk.removebarcod(j.bookId);
                                 j.loan();
                                 break;
@@ -115,7 +115,7 @@ public static void main(String[] args) throws InterruptedException {
                 Thread.sleep(1000);
                 break;
             case 6:
-                    lib.print();
+                  //  lib.print();
                     Thread.sleep(2000);
                   break;
             case 7 :

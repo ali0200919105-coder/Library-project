@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class InfoBook {
+public class InfoBook  {
     int bookId ;
     String name;
     String witer;
@@ -9,9 +9,6 @@ public class InfoBook {
     public  static  int  counter=1;
     public  int  barcoods = 10;
     Map<Integer, List<Integer>> map2 = new HashMap<>();
-    public ArrayList<Person> persons = new ArrayList<>();
-
-
 
     public InfoBook( String name, String witer, int price, int tedad) {
         this.bookId=counter++;

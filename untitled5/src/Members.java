@@ -5,6 +5,10 @@ public class Members extends Person{
         this.shomare = shomare;
     }
 
+    public Members() {
+
+    }
+
     public int getShomare() {
         return shomare;
     }
