@@ -5,17 +5,13 @@ public class Members extends Person{
         this.shomare = shomare;
     }
 
-    public Members() {
-
-    }
-
     public int getShomare() {
         return shomare;
     }
 
     @Override
     public void showInfo(){
-    System.out.println("personId:"+getPersonId()+"    Name:"+ name+ "    age:"+ getAge() + "the number:"+ getShomare());
+    System.out.println("personId:"+getPersonId()+"    Name:"+ name+ "    age:"+ getAge() + "     the number:"+ getShomare());
 
     }
 

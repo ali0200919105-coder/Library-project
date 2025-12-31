@@ -1,6 +1,5 @@
 public static void main(String[] args) throws InterruptedException {
     LibraryNew lib = new LibraryNew();
-    InfoBook kk = new InfoBook();
     Scanner sc = new Scanner(System.in);
 
 
@@ -55,15 +54,12 @@ public static void main(String[] args) throws InterruptedException {
                 int tedad = sc.nextInt();
 
                 lib.addbook(new InfoBook(bokkName,witer,price,tedad));
-                for (InfoBook o : lib.Books){
-                    kk.putt(o.getBookId() , o.getTedad());
-                }
 
                 System.out.println("اطلاعات کتاب ذخیره شد");
                 Thread.sleep(2000);
                 break;
             case 3:
-                if (lib !=null) {
+                if (lib.persons !=null) {
                     for (Person p : lib.persons)
                         p.showInfo();
                 }
@@ -71,7 +67,7 @@ public static void main(String[] args) throws InterruptedException {
 
                   break;
             case 4:
-                 if (lib != null) {
+                 if (lib.Books != null) {
                      for (InfoBook p : lib.Books)
                          p.showInfo();
                  }
@@ -91,10 +87,6 @@ public static void main(String[] args) throws InterruptedException {
                         ListPerson = i;
                     }
                 }
-//                        if (lib.map.containsKey(ListPerson)) {
-//                            System.out.println("این شخص کتابی را امانت گرفته");
-//                            break;
-//                        }
 
                         System.out.println("choos a Book:");
                         int BookId = sc.nextInt();
@@ -103,7 +95,7 @@ public static void main(String[] args) throws InterruptedException {
                             if (j.getBookId() == BookId && j.getTedad() > 0) {
                                 ListBook = j;
                                 lib.Lending(ListPerson, ListBook);
-                                kk.removebarcod(j.bookId);
+                                j.removebarcod();
                                 j.loan();
                                 break;
                             }
@@ -117,11 +109,24 @@ public static void main(String[] args) throws InterruptedException {
                 Thread.sleep(1000);
                 break;
             case 6:
-                  //  lib.print();
+                for (Person p : lib.persons){
+                    if (!p.Borowbooks.isEmpty()){
+                         System.out.println(p);
+                        System.out.println("}کتاب های امانت گرفته شده");
+                        //System.out.println("کتابی امانت داده نشده.");
+                    }
+                for (InfoBook l : p.Borowbooks) {
+                    System.out.println(l);
+                }
+                System.out.println("}");
+
+                }
                     Thread.sleep(2000);
                   break;
             case 7 :
-                kk.print2();
+                for (InfoBook o : lib.Books){
+                    o.print2();
+                }
                 Thread.sleep(2000);
                 break;
             case 0:
