@@ -27,10 +27,14 @@ public static void main(String[] args) throws InterruptedException {
                     Thread.sleep(1000);
                     break;
                 }
-                System.out.println("inter your number:");
-                int number = sc.nextInt();
-                if(personAge <100){
-                    lib.addPerson( new Members(personName,personAge,number));
+                System.out.println("inter your codM:");
+                int codM = sc.nextInt();
+                if (String.valueOf(codM).length() != 10){
+                    System.out.println("pleass inter a valou codM:");
+                    break;
+                }
+                if(personAge <100 && String.valueOf(codM).length() == 10){
+                    lib.addPerson( new Members(personName,personAge,codM));
                 }
 
                 System.out.println("اطلاعات افراد ذخیره شد.");
