@@ -1,6 +1,8 @@
 public static void main(String[] args) throws InterruptedException {
     LibraryNew lib = new LibraryNew();
     Scanner sc = new Scanner(System.in);
+    Person ListPerson = null;
+    InfoBook ListBook = null;
 
 
     while (true){
@@ -11,6 +13,7 @@ public static void main(String[] args) throws InterruptedException {
         System.out.println("5_Lending Book");
         System.out.println("6_show lounBook");
         System.out.println("7_Barcods of books");
+        System.out.println("8_search book");
         System.out.println("0_Exit");
         int select = sc.nextInt();
         switch (select){
@@ -28,13 +31,13 @@ public static void main(String[] args) throws InterruptedException {
                 }
                 System.out.println("inter your codM:");
                 int codM = sc.nextInt();
-                if (String.valueOf(codM).length() != 10){
-                    System.out.println("pleass inter a valou codM:");
-                    break;
-                }
-                if(personAge <100 && String.valueOf(codM).length() == 10){
+//                if (String.valueOf(codM).length() != 10){
+//                    System.out.println("pleass inter a valou codM:");
+//                    break;
+//                }
+//                if(personAge <100 && String.valueOf(codM).length() == 10){
+//                }
                     lib.addPerson( new Members(personName,personAge,codM));
-                }
 
                 System.out.println("اطلاعات افراد ذخیره شد.");
                 Thread.sleep(2000);
@@ -80,8 +83,7 @@ public static void main(String[] args) throws InterruptedException {
                 }
                 System.out.println("inter your IdPerson:");
                 int PersonId = sc.nextInt();
-                Person ListPerson = null;
-                InfoBook ListBook = null;
+
                 for (Person i : lib.persons) {
                     if (i.getPersonId() == PersonId) {
                         ListPerson = i;
@@ -95,11 +97,13 @@ public static void main(String[] args) throws InterruptedException {
                             if (j.getBookId() == BookId && j.getTedad() > 0) {
                                 ListBook = j;
                                 lib.Lending(ListPerson, ListBook);
-                                j.removebarcod();
+                               j.removebarcod();
                                 j.loan();
+
                                 break;
                             }
                         }
+
                         if (ListBook == null) {
                             System.out.println("این کتاب موجود نمیباشد.");
                             break;
@@ -128,6 +132,13 @@ public static void main(String[] args) throws InterruptedException {
                     o.print2();
                 }
                 Thread.sleep(2000);
+                break;
+            case 8 :
+                sc.nextLine();
+                System.out.println("inter the name book you are looking for:");
+                String BookId2 = sc.nextLine();
+                lib.Search(BookId2);
+
                 break;
             case 0:
                 System.out.println("با موفقیت از برنامه خارج شد.");

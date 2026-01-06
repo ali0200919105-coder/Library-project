@@ -14,8 +14,15 @@ public class LibraryNew {
     protected void Lending(Person b , InfoBook chos) {
         b.lendbook(chos);
     }
+    public void Search(String searching) {
+        for (InfoBook o : Books) {
 
-
+            if (o.getName().equals(searching)) {
+                System.out.println("این کتاب موجود میباشد");
+                System.out.println("BookId = " + o.getBookId() + "   BookName = "+ o.getName() + "  BookWiter = " + o.getWiter() + "  BookPrice = "+ o.getPrice());
+            }else System.out.println("این کتاب موجود نمیباشد");
+        }
+    }
 
 
 }

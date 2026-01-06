@@ -6,9 +6,10 @@ public class InfoBook  {
     String witer;
     int price;
     int tedad;
-    public  static  int  counter=1;
-    ArrayList<Integer> p = new ArrayList<>();
-    public  static int  barcoods = 10;
+    public  static int barcoods = 10;
+    public  static  int  counter = 1;
+
+    ArrayList<Barcods> p = new ArrayList<>();
 
     public InfoBook( String name, String witer, int price, int tedad) {
         this.bookId=counter++;
@@ -17,21 +18,33 @@ public class InfoBook  {
         this.price = price;
         this.tedad = tedad;
         for (int i = 1 ; i<=tedad ; i++ ) {
-            p.add(barcoods++);
+            p.add(new Barcods(barcoods++));
         }
     }
+
     public void removebarcod(){
         p.removeFirst();
+
     }
-    public void print2() {
-        System.out.println("this bookID:" + getBookId()+ "\nBarcods: " + p + "?????????????????");
-    }
+
     public int getBookId() {
         return bookId;
     }
 
     public int getTedad() {
         return tedad;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getWiter() {
+        return witer;
+    }
+
+    public int getPrice() {
+        return price;
     }
 
     public void loan() {
@@ -41,15 +54,18 @@ public class InfoBook  {
     }
 
 
+
     public void showInfo() {
         System.out.println("BookId = " + bookId + ".         BookName = " + name + ".          BookWiter = " + witer + ".            BookPrice = " + price + ".          BookCount= " + tedad + "--------------\n");
 
     }
     @Override
     public String toString(){
-        return  "BookId = " + bookId + ".         BookName = " + name + ".          BookWiter = " + witer + ".            BookPrice = " + price + ".          BookCount= " + tedad +"--------------";
+        return  "BookId = " + bookId + ".         BookName = " + name + ".          BookWiter = " + witer + ".            BookPrice = " + price + ".          BookCount= " + tedad  + "--------------";
     }
-
+    public void print2() {
+        System.out.println("this bookID:" + getBookId()+ "\nBarcods: " + p + "?????????????????");
+    }
 
     }
 
